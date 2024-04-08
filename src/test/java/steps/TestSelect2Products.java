@@ -6,10 +6,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import pages.Base;
-import pages.DetailsProductPage;
-import pages.HomePage;
-import pages.ProductsPage;
+import pages.*;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -19,10 +16,11 @@ public class TestSelect2Products {
   private WebDriver driver;
 
   private HomePage homePage;
-
   private ProductsPage productsPage;
-
   private DetailsProductPage detailsProductPage;
+
+  private PostCodePage postCodePage;
+
 
     public TestSelect2Products(Base base) {
         this.driver = base.driver;
@@ -30,6 +28,7 @@ public class TestSelect2Products {
         homePage = new HomePage(driver);
         productsPage = new ProductsPage(driver);
         detailsProductPage = new DetailsProductPage(driver);
+        postCodePage = new PostCodePage(driver);
     }
 
 
@@ -67,33 +66,33 @@ public class TestSelect2Products {
 
     @Then("I click on add to cart T")
     public void i_click_on_add_to_cart_T () {
-        driver.findElement(By.id("ContentSite_divBtBuy")).click();
+        detailsProductPage.clickBtnAddToCart();
     }
 
 
-    @Then("I fill in the field with the postcode for delivery T")
-    public void i_fill_in_the_field_with_the_postcode_for_delivery_T () {
-        driver.findElement(By.id("ContentSite_uwcCalendar_txtZip")).sendKeys("14807204");
+    @Then("I fill in the field with the postcode for delivery {string} T")
+    public void i_fill_in_the_field_with_the_postcode_for_delivery_T (String CEP) {
+        postCodePage.postCode(CEP);
     }
 
 
     @When("I click on the ok button to select the postcode T")
     public void i_click_on_the_ok_button_to_select_the_postcode_T () {
-        driver.findElement(By.xpath("//span[@class='btn_okcep jSelectZip']")).click();
+        postCodePage.clickBtnSelectPostCode();
     }
 
 
     @Then("I select the delivery period T")
     public void i_select_the_delivery_period_T () throws InterruptedException {
         Thread.sleep(5000);
-        driver.findElement(By.id("btConfirmShippingData")).click();
+        postCodePage.clickBtnConfirmData();
     }
 
 
     @Then("I click on add to cart after to select the postcode T")
     public void i_click_on_add_to_cart_after_to_select_the_postcode_T () throws InterruptedException {
         Thread.sleep(5000);
-        driver.findElement(By.cssSelector("span.seta_carrinho")).click();
+        postCodePage.clickAddCartAfterPostCode();
     }
 
 
@@ -132,27 +131,23 @@ public class TestSelect2Products {
 
 
     @Then("I select the product2 T")
-    public void i_select_the_product2_T() throws InterruptedException {
-        Thread.sleep(5000);
-        productsPage.clickProduct2();
-    }
+    public void i_select_the_product2_T()  {
+        productsPage.clickProduct2(); }
 
 
     @Then("I check the product2 name {string} T")
-    public void i_check_the_product2_name_T(String productTitle2) {
+    public void i_check_the_product2_name_T(String productTitle2)  {
         assertEquals(detailsProductPage.readNameProduct2(), productTitle2);
     }
 
 
     @Then("I check the price of the product2 {string} T")
-    public void i_check_the_price_of_the_product2_T(String productPrice2) {
+    public void i_check_the_price_of_the_product2_T(String productPrice2)  {
         assertEquals(detailsProductPage.readPriceProduct2(), productPrice2);
     }
 
     @Then("I click Add to Cart T")
-    public void i_click_add_to_cart_T() throws InterruptedException {
-        Thread.sleep(5000);
-        driver.findElement(By.id("ContentSite_lbtBuy")).click();
+    public void i_click_add_to_cart_T() { driver.findElement(By.id("ContentSite_lbtBuy")).click();
     }
 
 

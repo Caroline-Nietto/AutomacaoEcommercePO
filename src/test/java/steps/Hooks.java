@@ -22,6 +22,7 @@ public class Hooks{
         WebDriverManager.chromedriver().setup();
 
         ChromeOptions options = new ChromeOptions();
+        options.addArguments("--disable-notifications");
         options.addArguments("--remote-allow-origins=*");
 
         base.driver = new ChromeDriver(options);

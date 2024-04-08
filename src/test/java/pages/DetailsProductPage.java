@@ -19,6 +19,9 @@ public class DetailsProductPage {
     @FindBy(css = "span.precoPor_prod")
     private WebElement priceProduct2;
 
+    @FindBy(id = "ContentSite_divBtBuy")
+    private WebElement btnAddToCart;
+
     private WebDriver driver;
 
     public DetailsProductPage(WebDriver driver) {
@@ -35,4 +38,8 @@ public class DetailsProductPage {
     public String readNameProduct2() { return nameProduct2.getText(); }
 
     public String readPriceProduct2() { return priceProduct2.getText(); }
+
+    public void clickBtnAddToCart() { btnAddToCart.click();
+
+    }
 }

@@ -6,7 +6,7 @@ Feature: Test Select 2 Products
     And I check the product1 name <productTitle1> T
     And I check the product1 price <productPrice1> T
     Then I click on add to cart T
-    Then I fill in the field with the postcode for delivery T
+    Then I fill in the field with the postcode for delivery <CEP> T
     When I click on the ok button to select the postcode T
     Then I select the delivery period T
     And I click on add to cart after to select the postcode T
@@ -29,5 +29,5 @@ Feature: Test Select 2 Products
     And I check the product2 price <productPrice2> in cart T
 
     Examples:
-      | productTitle1                 | productPrice1 | productTitleCart1            | productTitle2                 | productPrice2 | productTitleCart2              |
-      | "BUQUÊ DE 6 ROSAS VERMELHAS"  | "R$ 109,90"   | "Buquê de 6 Rosas Vermelhas" | "CESTA SONHO DOS CHOCÓLATRAS" | "R$ 149,90"   | "Cesta Sonho dos Chocólatras"  |
+      | productTitle1                 | productPrice1 | productTitleCart1            | productTitle2                 | productPrice2 | productTitleCart2              | CEP       |
+      | "BUQUÊ DE 6 ROSAS VERMELHAS"  | "R$ 109,90"   | "Buquê de 6 Rosas Vermelhas" | "CESTA SONHO DOS CHOCÓLATRAS" | "R$ 149,90"   | "Cesta Sonho dos Chocólatras"  |"14807204" |
