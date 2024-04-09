@@ -22,16 +22,15 @@ public class Hooks{
         WebDriverManager.chromedriver().setup();
 
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("--disable-notifications");
         options.addArguments("--remote-allow-origins=*");
 
         base.driver = new ChromeDriver(options);
         base.driver.manage().window().maximize();
-        base.driver.manage().timeouts().implicitlyWait(60000, TimeUnit.MILLISECONDS);
+        base.driver.manage().timeouts().implicitlyWait(100000, TimeUnit.MILLISECONDS);
     }
 
-    @After
-    public void finalizar() {
-        base.driver.quit();
-    }
+  //  @After
+    //public void finalizar() {
+ //       base.driver.quit();
+   // }
 }

@@ -10,7 +10,7 @@ public class ProductsPage {
 
     // Produto 1
     @FindBy(css = "img[alt='Buquê de 6 Rosas Vermelhas']")
-    private WebElement product1;
+    public WebElement product1;
 
     @FindBy(css = "img[alt='Cesta Sonho dos Chocólatras']")
     private WebElement product2;
