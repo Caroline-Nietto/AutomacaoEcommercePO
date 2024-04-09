@@ -13,7 +13,7 @@ public class ProductsPage {
     public WebElement product1;
 
     @FindBy(css = "img[alt='Cesta Sonho dos Chocólatras']")
-    private WebElement product2;
+    public WebElement product2;
 
     private WebDriver driver;
 

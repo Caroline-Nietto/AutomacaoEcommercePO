@@ -11,10 +11,16 @@ public class CartPage {
     public WebElement titleCart;
 
     @FindBy(css = "span.prodBasket_nome")
-    public WebElement nameProductCart;
+    public WebElement nameProductCart1;
 
     @FindBy(css = "span.precoPor_basket")
-    public WebElement priceProductCart;
+    public WebElement priceProductCart1;
+
+    @FindBy(css = "span.prodBasket_nome")
+    public WebElement nameProductCart2;
+
+    @FindBy(css = "span.precoPor_basket")
+    public WebElement priceProductCart2;
 
     @FindBy(className = "jThisBasket")
     public WebElement btnThisDestination;
@@ -31,9 +37,13 @@ public class CartPage {
 
     public String readTitleCart () { return titleCart.getText();}
 
-    public String readNameProductCart() { return nameProductCart.getText();}
+    public String readNameProductCart1() { return nameProductCart1.getText();}
 
-    public String readPriceProductCart() { return priceProductCart.getText();}
+    public String readPriceProductCart1() { return priceProductCart1.getText();}
+
+    public String readNameProductCart2() { return nameProductCart2.getText();}
+
+    public String readPriceProductCart2() { return priceProductCart2.getText();}
 
     public void clickBtnThisDestination() { btnThisDestination.click();}
 
